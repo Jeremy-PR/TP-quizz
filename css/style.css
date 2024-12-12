@@ -1,0 +1,77 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=DM+Serif+Display:ital@0;1&family=Jost:ital,wght@0,100..900;1,100..900&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+body {
+    background-color: rgba(51, 59, 101, 1);
+    color: white;
+    display: flex;
+    flex-direction: column;  
+    align-items: center;  
+    justify-content: center;  
+    height: 100vh;  
+    margin: 0;
+    padding: 20px;
+}
+
+h1 {
+    color: white;
+    font-size: 50px;
+    font-family: "Poppins", sans-serif;
+    font-weight: bold;
+    text-shadow: 0 14px 20px rgba(0, 0, 0, 0.8);
+    text-align: center;
+    margin-bottom: 20px;  
+}
+
+.content {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    width: 100%;
+    max-width: 600px;  
+}
+
+h2 {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    font-size: 24px;
+}
+
+input {
+    padding: 10px;
+    margin-left: 10px;
+    background-color: rgba(241, 246, 251, 1);
+    color: rgba(2, 10, 50, 1);
+    border-radius: 5px;
+    border: none;
+    display: flex;
+    justify-content: center;
+}
+
+a {
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: rgba(255, 201, 11, 1);
+    color: rgba(89, 112, 231, 1);
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    margin-left: 10px;
+    display: flex;
+    justify-content: center;
+   
+}
+
+a:hover {
+    background-color: rgba(255, 174, 0, 1);
+}
+
+#pseudo {
+    width: 200px;
+    font-family: "Poppins", sans-serif;
+    font-size: 16px;
+}
+
+#accueil {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
