@@ -33,6 +33,32 @@ if (isset($_SESSION['quiz'])) {
 
 
 
+
+
+    $sqlReponse = "SELECT answer.reponse FROM answer 
+INNER JOIN question ON   question.id = :answer_id_question LIMIT 20";
+
+try {
+$stmt = $pdo->prepare($sqlReponse); 
+$stmt->execute(['answer_id_question' => $quizId]); 
+$reponses = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+
+
+// var_dump($questions);
+// die();
+} catch (PDOException $error) {
+echo "Erreur lors de la requête : " . $error->getMessage();
+}
+
+
+
+
+
+
+
+
+
+
  
 }
 
@@ -57,10 +83,14 @@ if (isset($_SESSION['quiz'])) {
 </head>
 <body>
 <?php $countQuestion = 1; ?>
+<?php $countReponse = 1; ?>
+
 
 <main>
 <h1><?= $quiz['name'] ?></h1>
 <?php foreach($questions as $question){ 
+    ?>
+<?php foreach($reponses as $reponse){ 
     ?>
     
 
@@ -77,8 +107,8 @@ if (isset($_SESSION['quiz'])) {
            
         </div>
          <?php if(isset($questions)): ?>
-        <button>super héros</button>
-        <button>super héros</button>
+        <button><?= $reponse['reponse'] ?></button>
+        <button><?= $reponse['reponse'] ?></button>
         <button class="hover-green">Validez</button>
         <?php else: ?>  <!-- si la condit exste pas il ce passe sa  -->
     <p>Aucun patient trouvé avec cet ID.</p>
@@ -87,7 +117,9 @@ if (isset($_SESSION['quiz'])) {
     </form>
    
 </section>
-
+<?php 
+$countReponse +=1;
+} ?>
 <?php 
 $countQuestion +=1;
 } ?>
