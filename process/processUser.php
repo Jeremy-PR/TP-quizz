@@ -23,6 +23,6 @@ if (isset($_POST['username']) && !empty($_POST['username'])) {
         echo "Erreur lors de l'insertion : " . $e->getMessage();
     }
 } else {
-    echo "Veuillez entrer un pseudonyme.";
+    echo "Entrez un pseudo.";
 }
 ?>
