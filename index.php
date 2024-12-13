@@ -9,10 +9,15 @@
 </head>
 <body>
 <h1> < QUIZZ<span style="color: #9B5EBF;"> 404/> </span> </h1>
+    <form action="./process/processUser.php" method="post">
     <div id="accueil">
         <h2>Connectez vous à votre compte</h2>
-        <input type="text" name="pseudo" id="pseudo" placeholder="Pseudonyme">
-        <a href="./front/Acceuil/accueil.php">Jouer</a>
+        <input type="text" name="username" id="pseudo" placeholder="Pseudonyme">
+        
+            <input type="submit" value="jouer">
+        
     </div>
+    </form>
+    
 </body>
 </html>
