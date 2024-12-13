@@ -12,7 +12,7 @@
     <div id="accueil">
         <h2>Connectez vous à votre compte</h2>
         <input type="text" name="pseudo" id="pseudo" placeholder="Pseudonyme">
-        <a href="../front-endQuestion/">Jouer</a>
+        <a href="./front/Acceuil/accueil.php">Jouer</a>
     </div>
 </body>
 </html>

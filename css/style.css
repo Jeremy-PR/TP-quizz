@@ -75,3 +75,14 @@ a:hover {
     flex-direction: column;
     gap: 10px;
 }
+
+.thème{
+    display: flex;
+    gap: 5%;
+}
+
+.thèmeChoice{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
