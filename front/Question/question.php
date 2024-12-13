@@ -1,7 +1,12 @@
 <?php
+require_once '../../utils/check-utilisateur.php';
 
-if (isset($_GET['quiz'])){
-    $quiz = $_GET['quiz'];
+var_dump($_SESSION);
+die();
+
+
+if (isset($_SESSION['quiz'])){
+    $quiz = $_SESSION['quiz'];
 } else {
   
     header("Location: ../../index.html");

@@ -8,12 +8,28 @@ if (isset($_POST['username']) && !empty($_POST['username'])) {
 
     try {
        
-        $sql = "INSERT INTO user (username) VALUES (:username)";
-        $stmt = $pdo->prepare($sql);
-        $stmt->execute(['username' => $username]);
+        $stmt = $pdo->prepare('SELECT * FROM user where username = :username');
+        $stmt->execute([
+            ':username' => $username
+        ]);
 
-        //la je stocker l'user dans la session
-        $_SESSION['username'] = $username;
+        $user = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        
+
+        if(!$user){
+            $sql = "INSERT INTO user (username) VALUES (:username)";
+            $stmt = $pdo->prepare($sql);
+            $stmt->execute(['username' => $username]);
+
+            //la je stocker l'user dans la session
+            $_SESSION['user']['id'] = $pdo->lastInsertId();
+            $_SESSION['user']['username'] = $username;
+
+
+        } else {
+            $_SESSION['user'] = $user;
+        }       
 
      
         header("Location: ../front/Acceuil/accueil.php");
