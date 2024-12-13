@@ -1,13 +1,42 @@
 <?php
 require_once '../../utils/check-utilisateur.php';
+require_once '../../connect/connectDB.php';
 
-var_dump($_SESSION);
-die();
+// var_dump($_SESSION);
+// die();
 
 
-if (isset($_SESSION['quiz'])){
-    $quiz = $_SESSION['quiz'];
-} else {
+if (isset($_SESSION['quiz'])) {
+    $quiz = $_SESSION['quiz']; 
+    $quizId = $quiz['id']; 
+  
+
+    $sql = "SELECT 
+                question.id, 
+                question.intitule 
+            FROM question 
+            JOIN quiz ON question.id_quiz = quiz.id 
+            WHERE quiz.id = :quiz_id";
+
+    try {
+        $stmt = $pdo->prepare($sql); 
+        $stmt->execute(['quiz_id' => $quizId]); 
+        $questions = $stmt->fetchAll(PDO::FETCH_ASSOC); 
+
+        
+        // var_dump($questions);
+        // die();
+    } catch (PDOException $error) {
+        echo "Erreur lors de la requête : " . $error->getMessage();
+    }
+
+
+
+
+ 
+}
+
+ else {
   
     header("Location: ../../index.html");
     exit();
@@ -27,58 +56,44 @@ if (isset($_SESSION['quiz'])){
    
 </head>
 <body>
+<?php $countQuestion = 1; ?>
 
 <main>
+<h1><?= $quiz['name'] ?></h1>
+<?php foreach($questions as $question){ 
+    ?>
+    
 
 <section class="question">
-    <h2> < QUESTION-<span style="color: #9B5EBF;"> 1/> </span> </h2>
+    <h2> < QUESTION-<span style="color: #9B5EBF;"> <?= $countQuestion?>/> </span> </h2>
     
     
     <form action="" method="">
     <div class="btn-placement">
+      
         <div class="h3-placement">
-            <h3>Ici on pose la question ?</h3>
+         
+            <h3><?= $question['intitule'] ?></h3>
+           
         </div>
-
-        <button>Super héros</button>
-        <button>Super héros</button>
+         <?php if(isset($questions)): ?>
+        <button>super héros</button>
+        <button>super héros</button>
         <button class="hover-green">Validez</button>
+        <?php else: ?>  <!-- si la condit exste pas il ce passe sa  -->
+    <p>Aucun patient trouvé avec cet ID.</p>
+<?php endif; ?>
     </div>
     </form>
    
 </section>
 
-<section class="question">
-    <h2> < QUESTION-<span style="color: #9B5EBF;"> 2/> </span> </h2>
-    
-    <form action="" method="">
-    <div class="btn-placement">
-        <div class="h3-placement">
-            <h3>Ici on pose la question ?</h3>
-        </div>
+<?php 
+$countQuestion +=1;
+} ?>
 
-        <button>Super héros</button>
-        <button>Super héros</button>
-        <button class="hover-green">Validez</button>
-    </div>
-    </form>
-</section>
 
-<section class="question">
-    <h2> < QUESTION-<span style="color: #9B5EBF;"> 3/> </span> </h2>
-    
-    <form action="" method="">
-    <div class="btn-placement">
-        <div class="h3-placement">
-            <h3>Ici on pose la question ?</h3>
-        </div>
 
-        <button>Super héros</button>
-        <button>Super héros</button>
-        <button class="hover-green">Validez</button>
-    </div>
-    </form>
-</section>
 
 
 <input type="submit" class="btn-submit" value="Voir les résultats">
