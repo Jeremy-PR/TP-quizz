@@ -5,6 +5,7 @@ require_once '../../connect/connectDB.php';
 // sa c'est pour verif si l'user est connecté via la session
 if (isset($_SESSION['username'])) {
     $username = $_SESSION['username'];
+   
 } else {
    
     header("Location: index.php");
