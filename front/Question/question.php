@@ -1,3 +1,17 @@
+<?php
+
+if (isset($_GET['quiz'])){
+    $quiz = $_GET['quiz'];
+} else {
+  
+    header("Location: ../../index.html");
+    exit();
+}
+
+?>
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

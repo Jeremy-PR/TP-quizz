@@ -1,3 +1,28 @@
+<?php
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,13 +38,13 @@
 <section class ="thème">
     <div class="thèmeChoice">
     <img src="../../img/image de super héros.jpg" alt="Photo de tous les super-héros">  
-    <a href="../Question/question.php">Commencer</a>
+    <a href="../Question/question.php?quiz=Quizz Super-héros">Commencer</a>
     </div>
 
 
 <div class="thèmeChoice">
 <img src="../../img/dev web.jpg" alt="photo d'un ordinateur">
-<a href="../Question/question.php">Commencer</a>
+<a href="../Question/question.php?quiz=Quizz Développement web">Commencer</a>
 </div>
   
 
