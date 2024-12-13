@@ -1,8 +1,8 @@
 <?php
 require_once '../../utils/check-utilisateur.php';
 
-var_dump($_SESSION);
-die();
+// var_dump($_SESSION);
+// die();
 
 
 if (isset($_SESSION['quiz'])){
@@ -13,7 +13,17 @@ if (isset($_SESSION['quiz'])){
     exit();
 }
 
+ 
+
+
+
+ 
+
+
 ?>
+
+
+
 
 
 
@@ -24,6 +34,10 @@ if (isset($_SESSION['quiz'])){
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question</title>
     <link rel="stylesheet" href="../../css/question.css">
+ <script src="../../JS/question.js"></script>
+    
+   
+
    
 </head>
 <body>
