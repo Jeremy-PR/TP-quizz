@@ -95,7 +95,7 @@ try {
                             <p>pas de rep</p>  
                         <?php endif; ?>
 
-                        <button class="hover-green">Validez</button> 
+                        <button class="hover-green" id="btn-validez">Validez</button> 
                     </div>
                 </form>
             </section>
