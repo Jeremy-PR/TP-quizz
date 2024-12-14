@@ -32,8 +32,11 @@ if (isset($_SESSION['quiz'])) {
         //la je boucle sur toutes les questions pour récupérer leurs réponses
         foreach ($questions as $question) {
             $stmt = $pdo->prepare($sqlReponse);  
-            $stmt->execute(['question_id' => $question['id']]);  
-            $reponses[$question['id']] = $stmt->fetchAll(PDO::FETCH_ASSOC);  
+            $stmt->execute(['question_id' => $question['id']]);  // id question
+
+            $reponses[$question['id']] = $stmt->fetchAll(PDO::FETCH_ASSOC);   // la je recup toute les réponses pour les question et je les stock dans la tableau qui est au dessus et l'id cest celui de la question
+            // var_dump($reponses);
+            // die();
         }
     } catch (PDOException $error) {
         echo "Problème pour récupérer les réponses : " . $error->getMessage();  
@@ -91,7 +94,7 @@ if (isset($_SESSION['quiz'])) {
                     </div>
                 </form>
             </section>
-            <?php $countQuestion++; ?>  
+            <?php $countQuestion += 1; ?>  
         <?php endforeach; ?> <!-- la je termine la boucle qui parcou toute les questions-->
     <?php else: ?>
         <p>pas de question </p>  
