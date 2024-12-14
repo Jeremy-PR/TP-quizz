@@ -22,26 +22,31 @@ if (isset($_SESSION['quiz'])) {
         exit;
     }
 
-   //2ème try catch pour les réponses
-    $sqlReponse = "SELECT answer.reponse 
-                   FROM answer 
-                   WHERE answer.id_question = :question_id";  
-   
-    $reponses = [];   // tableau pour stocker les réponses 
-    try {
-        //la je boucle sur toutes les questions pour récupérer leurs réponses
-        foreach ($questions as $question) {
-            $stmt = $pdo->prepare($sqlReponse);  
-            $stmt->execute(['question_id' => $question['id']]);  // id question
+// 2ème try catch pour gerer les réponses aux questions
+$sqlReponse = "SELECT answer.reponse 
+               FROM answer 
+               WHERE answer.id_question = :question_id";
 
-            $reponses[$question['id']] = $stmt->fetchAll(PDO::FETCH_ASSOC);   // la je recup toute les réponses pour les question et je les stock dans la tableau qui est au dessus et l'id cest celui de la question
-            // var_dump($reponses);
-            // die();
-        }
-    } catch (PDOException $error) {
-        echo "Problème pour récupérer les réponses : " . $error->getMessage();  
-        exit;
+$reponses = []; // tableau pour stocker les réponses associées à chaque question
+
+try {
+    // la je fait un foreach pour recup toute les questions pour  recupe leur reponse
+    foreach ($questions as $question) {
+        $stmt = $pdo->prepare($sqlReponse);
+        $stmt->execute(['question_id' => $question['id']]); // la j'execute avec l'id de la question
+
+        // la je recup toutes les question qui vont avc les reponse et je les stock dans le tableau
+        $reponses[$question['id']] = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        // var_dump($reponses);
+        // die(); 
     }
+} catch (PDOException $error) {
+    
+    echo "Problème pour récupérer les réponses : " . $error->getMessage();
+    exit;
+}
+
 } else {
    
     header("Location: ../../index.html");
@@ -84,7 +89,7 @@ if (isset($_SESSION['quiz'])) {
                         <!-- la je verif si des reponse exist pour les question  et count compte le nombre de réponse dispo-->
                         <?php if (isset($reponses[$question['id']]) && count($reponses[$question['id']]) > 0): ?>
                             <?php foreach ($reponses[$question['id']] as $reponse): ?>  <!-- ce foreach sert afficher les repons de chaque question  -->
-                                <button type="button"><?= $reponse['reponse'] ?></button>  
+                                <button type="button"><?= $reponse['reponse'] ?></button>   <!-- un bouton par reponse   -->
                             <?php endforeach; ?> <!-- la je termine la boucle qui parcou toute les reponses-->
                         <?php else: ?>
                             <p>pas de rep</p>  
