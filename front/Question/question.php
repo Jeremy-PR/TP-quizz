@@ -64,7 +64,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question</title>
     <link rel="stylesheet" href="../../css/question.css">
- <script src="../../JS/question.js"></script>
+
     
    
 

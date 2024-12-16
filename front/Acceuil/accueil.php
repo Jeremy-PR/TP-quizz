@@ -26,7 +26,7 @@ try {
 <body>
 
     <h1>Bienvenue <?= $username ?></h1>
-    <a href="../../process/clean-user-session.php">Deconnexion</a>
+    <a id=deconnexion href="../../process/clean-user-session.php">Déconnexion</a>
 
     <h1>
         < QUIZZ<span style="color: #9B5EBF;"> 404/> </span>

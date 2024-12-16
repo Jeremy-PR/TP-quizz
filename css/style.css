@@ -87,3 +87,9 @@ input {
     flex-direction: column;
     gap: 10px;
 }
+
+#deconnexion{
+    color: white;
+    text-transform: uppercase;
+
+}
