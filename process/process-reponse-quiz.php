@@ -1,31 +1,35 @@
-
 <?php 
 require_once '../connect/connectDB.php';
 
+$score = 0;
 
+foreach($_POST as $index => $givenAnswer){
 
-$sql = "SELECT * FROM answer WHERE answer.id_question = :question_id";
+    if($givenAnswer === "1"){
+        $score++;
+    }
+    
+}
+
+session_start();
+
+$_SESSION['givenAnswers'] = $_POST;
+$_SESSION['score'] = $score;
 
 
 try {
-    $stmt = $pdo->prepare($sql);
-    $users = $stmt->execute([
-        ':reponse' => $_POST["reponse"],
-        ':question_id' => $_POST["question_id"],
-        ':name' => $_POST["name"]
-        
-    ]); // ou fetch si vous savez que vous n'allez avoir qu'un seul résultat
-
-
-
-
-} catch (PDOException $error) {
-    echo "Erreur lors de la requete : " . $error->getMessage();
+    $stmt = $pdo->prepare("INSERT INTO résultat(score, id_user, id_quiz) VALUES (:score, :id_user, :id_quiz)");
+    $stmt->execute([
+        ':score' => $score,
+        ':id_user' => $_SESSION['user']['id'],
+        ':id_quiz' => $_SESSION['quiz']['id'],
+    ]);
+} catch (\PDOException $error) {
+    throw $error;
 }
 
 
+// Redirection
 header("Location: ../front/Resultat/resultat.php");
 exit;
-
-
 ?>

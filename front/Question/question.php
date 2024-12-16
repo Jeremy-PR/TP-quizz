@@ -23,7 +23,7 @@ if (isset($_SESSION['quiz'])) {
     }
 
     // 2ème try catch pour gerer les réponses aux questions
-    $sqlReponse = "SELECT answer.reponse 
+    $sqlReponse = "SELECT answer.reponse, answer.is_correct
                FROM answer 
                WHERE answer.id_question = :question_id";
 
@@ -89,11 +89,12 @@ if (isset($_SESSION['quiz'])) {
                             <div class="h3-placement">
                                 <h3><?= $question['intitule'] ?></h3>
                             </div>
-
+                                        
                             <!-- la je verif si des reponse exist pour les question  et count compte le nombre de réponse dispo-->
                             <?php if (isset($reponses[$question['id']]) && count($reponses[$question['id']]) > 0): ?>
                                 <?php foreach ($reponses[$question['id']] as $index => $reponse): ?> <!-- ce foreach sert afficher les repons de chaque question  -->
-                                    <input type="radio" name="question<?= $question['id'] ?>" type="button" value="reponse<?= $index ?>"><?= $reponse['reponse'] ?></input> <!-- un bouton par reponse   -->
+        
+                                    <input type="radio" name="question<?= $question['id'] ?>" type="button" value="<?= $reponse['is_correct'] ?>"><?= $reponse['reponse'] ?></input> <!-- un bouton par reponse   -->
                                 
                                 
                                     <?php endforeach; ?> <!-- la je termine la boucle qui parcou toute les reponses-->
