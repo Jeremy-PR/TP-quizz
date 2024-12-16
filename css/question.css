@@ -118,3 +118,15 @@ button {
     margin-top: 20px;
     margin-bottom: 20px;
   }
+  
+  #timer{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #ffffff;
+    background-color: #ff4444; 
+    padding: 10px 20px;
+    border-radius: 5px;
+    display: inline-block;
+    text-align: center;
+    min-width: 80px;
+}

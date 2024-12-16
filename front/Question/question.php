@@ -64,9 +64,10 @@ if (isset($_SESSION['quiz'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question</title>
     <link rel="stylesheet" href="../../css/question.css">
+    <script src="../../JS/timer.js" defer></script>
 
-    
-   
+
+
 
 
 </head>
@@ -75,14 +76,15 @@ if (isset($_SESSION['quiz'])) {
     <main>
         <form action="../../process/process-reponse-quiz.php" method="post">
             <h1 id=title><?= $quiz['name'] ?></h1>
+            <p><span id="timer">15</span> secondes</p> 
 
             <?php $countQuestion = 1; ?>
 
             <?php if (!empty($questions)): ?>
                 <?php foreach ($questions as $question): ?>
                     <section class="question">
-                        
-                    <h2>
+
+                        <h2>
                             < QUESTION-<span style="color: #9B5EBF;"> <?= $countQuestion ?> /></span>
                         </h2>
 
@@ -95,9 +97,9 @@ if (isset($_SESSION['quiz'])) {
                             <?php if (isset($reponses[$question['id']]) && count($reponses[$question['id']]) > 0): ?>
                                 <?php foreach ($reponses[$question['id']] as $index => $reponse): ?> <!-- ce foreach sert afficher les repons de chaque question  -->
                                     <input type="radio" name="question<?= $question['id'] ?>" type="button" value="reponse<?= $index ?>"><?= $reponse['reponse'] ?></input> <!-- un bouton par reponse   -->
-                                
-                                
-                                    <?php endforeach; ?> <!-- la je termine la boucle qui parcou toute les reponses-->
+                                   
+
+                                <?php endforeach; ?> <!-- la je termine la boucle qui parcou toute les reponses-->
                             <?php else: ?>
                                 <p>pas de rep</p>
                             <?php endif; ?>
@@ -106,16 +108,16 @@ if (isset($_SESSION['quiz'])) {
                         </div>
 
                     </section>
-                    <hr class="question-separator"> 
+                    <hr class="question-separator">
                     <?php $countQuestion += 1; ?>
                 <?php endforeach; ?> <!-- la je termine la boucle qui parcou toute les questions-->
             <?php else: ?>
                 <p>pas de question </p>
             <?php endif; ?> <!-- endif ferme le if elsze -->
-<div id=btnCentré>
-<input type="submit" class="btn-submit" value="Voir les résultats">
-</div>
-           
+            <div id=btnCentré>
+                <input type="submit" class="btn-submit" value="Voir les résultats">
+            </div>
+
         </form>
     </main>
 </body>
