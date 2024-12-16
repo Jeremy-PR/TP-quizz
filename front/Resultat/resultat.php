@@ -1,11 +1,22 @@
-
 <?php 
 
 require_once '../../connect/connectDB.php';
 
+session_start();
+// var_dump($_SESSION);
 
+$sql = "SELECT * FROM `résultat` ";
 
+try {
+    $stmt = $pdo->query($sql);
+    $scores = $stmt->fetchAll(PDO::FETCH_ASSOC); // ou fetch si vous savez que vous n'allez avoir qu'un seul résultat
+    // var_dump($scores);
+    // die();
+    
 
+} catch (PDOException $error) {
+    echo "Erreur lors de la requête : " . $error->getMessage();
+}
 
 ?>
 
@@ -31,7 +42,11 @@ require_once '../../connect/connectDB.php';
 
 
 <section class="resultat">
-    <h1>Bien jouer vous avez 3/3</h1>
+
+
+<?php foreach($scores as $score): ?>   
+    <h1>Bien jouer vous avez <?= $score['score'] ?> /3 </h1>
+<?php endforeach; ?>
 
     <a href="../Acceuil/accueil.php">Retournez au menu d'accueil</a>
 </section>
