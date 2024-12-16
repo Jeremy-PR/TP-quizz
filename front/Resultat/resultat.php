@@ -1,3 +1,25 @@
+
+<?php 
+
+require_once '../../connect/connectDB.php';
+
+
+$sql = ""
+
+
+
+
+
+?>
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
