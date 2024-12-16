@@ -24,12 +24,13 @@ if(isset($_SESSION['user']) && !empty($_SESSION['user'])){
     <h1>
         < QUIZZ<span style="color: #9B5EBF;"> 404/> </span>
     </h1>
+    <img src="./img/image-fond1.jpg" alt="photo principal" width="600px">
     <form action="./process/processUser.php" method="post">
         <div id="accueil">
             <h2>Connectez vous à votre compte</h2>
             <input type="text" name="username" id="pseudo" placeholder="Pseudonyme">
 
-            <input type="submit" value="jouer">
+            <input id="inputJouer" type="submit" value="JOUER">
 
         </div>
     </form>

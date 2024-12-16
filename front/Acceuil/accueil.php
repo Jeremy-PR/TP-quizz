@@ -26,7 +26,7 @@ try {
 <body>
 
     <h1>Bienvenue <?= $username ?></h1>
-    <a href="../../process/clean-user-session.php">Deconnexion</a>
+   
 
     <h1>
         < QUIZZ<span style="color: #9B5EBF;"> 404/> </span>
@@ -38,15 +38,17 @@ try {
 
         <?php foreach ($quizs as $quiz) { ?>
             <div class="thèmeChoice">
-                <img src="<?= $quiz['img_path'] ?>" alt="<?= $quiz['img_alt'] ?>">
+                <img  id= "cssImage"src="<?= $quiz['img_path'] ?>" alt="<?= $quiz['img_alt'] ?>">
                 <!-- <a href="../Question/question.php">Commencer</a> -->
                  <form action="../../process/process-quiz-choice.php" method="post">
                     <input type="hidden" name="idQuiz" value="<?= $quiz['id'] ?>">
                     <input type="submit" value="Commencer" class="commencer">
                  </form>
             </div>
+            
         <?php } ?>
     </section>
+    <a id=deconnexion href="../../process/clean-user-session.php">Déconnexion</a>
 </body>
 
 </html>

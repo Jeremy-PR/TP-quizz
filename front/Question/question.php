@@ -64,9 +64,9 @@ if (isset($_SESSION['quiz'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Question</title>
     <link rel="stylesheet" href="../../css/question.css">
-    <script src="../../JS/question.js"></script>
 
-
+    
+   
 
 
 </head>
@@ -74,14 +74,15 @@ if (isset($_SESSION['quiz'])) {
 <body>
     <main>
         <form action="../../process/process-reponse-quiz.php" method="post">
-            <h1><?= $quiz['name'] ?></h1>
+            <h1 id=title><?= $quiz['name'] ?></h1>
 
             <?php $countQuestion = 1; ?>
 
             <?php if (!empty($questions)): ?>
                 <?php foreach ($questions as $question): ?>
                     <section class="question">
-                        <h2>
+                        
+                    <h2>
                             < QUESTION-<span style="color: #9B5EBF;"> <?= $countQuestion ?> /></span>
                         </h2>
 
@@ -105,13 +106,16 @@ if (isset($_SESSION['quiz'])) {
                         </div>
 
                     </section>
+                    <hr class="question-separator"> 
                     <?php $countQuestion += 1; ?>
                 <?php endforeach; ?> <!-- la je termine la boucle qui parcou toute les questions-->
             <?php else: ?>
                 <p>pas de question </p>
             <?php endif; ?> <!-- endif ferme le if elsze -->
-
-            <input type="submit" class="btn-submit" value="Voir les résultats">
+<div id=btnCentré>
+<input type="submit" class="btn-submit" value="Voir les résultats">
+</div>
+           
         </form>
     </main>
 </body>
