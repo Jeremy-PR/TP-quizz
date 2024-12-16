@@ -10,6 +10,7 @@ body {
     height: 100vh;  
     margin: 0;
     padding: 20px;
+    
 }
 
 h1 {
@@ -20,6 +21,8 @@ h1 {
     text-shadow: 0 14px 20px rgba(0, 0, 0, 0.8);
     text-align: center;
     margin-bottom: 20px;  
+    
+    
 }
 
 .content {
@@ -55,8 +58,11 @@ input {
     border-radius: 5px;
     font-family: "Poppins", sans-serif;
     margin-left: 10px;
-    display: flex;
-    justify-content: center;
+    font-size: x-large;
+    font-weight: bold;
+
+   
+   
    
 }
 
@@ -69,12 +75,15 @@ input {
     width: 200px;
     font-family: "Poppins", sans-serif;
     font-size: 16px;
+    text-align: center;
 }
 
 #accueil {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    align-items: center;
+    justify-content: center;
 }
 
 .thème{
@@ -85,11 +94,33 @@ input {
 .thèmeChoice{
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 20px;
+    align-items: center;
+    justify-content: center;
 }
 
 #deconnexion{
     color: white;
     text-transform: uppercase;
+    padding-top: 100px;
+    cursor: pointer;
 
+}
+
+#cssImage{
+    width: 350px;
+    height: 200px;
+}
+
+
+#inputJouer{
+    padding: 10px 20px;
+    text-decoration: none;
+    background-color: rgba(255, 201, 11, 1);
+    color: rgba(89, 112, 231, 1);
+    border-radius: 5px;
+    font-family: "Poppins", sans-serif;
+    margin-left: 10px;
+    font-size: x-large;
+    font-weight: bold;
 }
