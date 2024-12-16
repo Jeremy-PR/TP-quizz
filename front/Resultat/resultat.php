@@ -23,12 +23,6 @@ try {
 
 
 
-
-
-
-
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,9 +39,10 @@ try {
 <section class="resultat">
 
 
-<?php foreach($scores as $score): ?>   
-    <h1>Bien jouer vous avez <?= $score['score'] ?> /3 </h1>
-<?php endforeach; ?>
+
+    <h1>Bien jouer vous avez <?= $_SESSION['score'] ?> /3 </h1>
+
+    
 
     <a href="../Acceuil/accueil.php">Retournez au menu d'accueil</a>
 </section>
