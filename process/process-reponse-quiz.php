@@ -3,14 +3,16 @@
 require_once '../connect/connectDB.php';
 
 
-$sql = "SELECT answer.is_correct FROM answer WHERE answer.id_question =  :question_id";
+
+$sql = "SELECT * FROM answer WHERE answer.id_question = :question_id";
 
 
 try {
     $stmt = $pdo->prepare($sql);
     $users = $stmt->execute([
         ':reponse' => $_POST["reponse"],
-        ':question_id' => $_POST["question_id"]
+        ':question_id' => $_POST["question_id"],
+        ':name' => $_POST["name"]
         
     ]); // ou fetch si vous savez que vous n'allez avoir qu'un seul résultat
 

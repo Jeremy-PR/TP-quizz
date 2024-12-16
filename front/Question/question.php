@@ -94,7 +94,9 @@ if (isset($_SESSION['quiz'])) {
                             <?php if (isset($reponses[$question['id']]) && count($reponses[$question['id']]) > 0): ?>
                                 <?php foreach ($reponses[$question['id']] as $index => $reponse): ?> <!-- ce foreach sert afficher les repons de chaque question  -->
                                     <input type="radio" name="question<?= $question['id'] ?>" type="button" value="reponse<?= $index ?>"><?= $reponse['reponse'] ?></input> <!-- un bouton par reponse   -->
-                                <?php endforeach; ?> <!-- la je termine la boucle qui parcou toute les reponses-->
+                                
+                                
+                                    <?php endforeach; ?> <!-- la je termine la boucle qui parcou toute les reponses-->
                             <?php else: ?>
                                 <p>pas de rep</p>
                             <?php endif; ?>

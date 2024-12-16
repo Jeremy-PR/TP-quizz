@@ -4,9 +4,6 @@
 require_once '../../connect/connectDB.php';
 
 
-$sql = ""
-
-
 
 
 
@@ -36,7 +33,7 @@ $sql = ""
 <section class="resultat">
     <h1>Bien jouer vous avez 3/3</h1>
 
-    <a href="">Retournez au menu d'accueil</a>
+    <a href="../Acceuil/accueil.php">Retournez au menu d'accueil</a>
 </section>
 
 
