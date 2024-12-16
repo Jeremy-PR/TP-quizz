@@ -1,9 +1,9 @@
 <?php 
 
 require_once '../../connect/connectDB.php';
-require_once '../../utils/check-utilisateur.php'
+require_once '../../utils/check-utilisateur.php';
 
-session_start();
+// session_start();
 // var_dump($_SESSION);
 
 $sql = "SELECT * FROM `résultat` ";
