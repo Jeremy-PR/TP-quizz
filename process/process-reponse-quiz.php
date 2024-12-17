@@ -1,4 +1,6 @@
 <?php 
+
+require_once '../utils/check-utilisateur.php';
 require_once '../connect/connectDB.php';
 
 $score = 0;
@@ -10,8 +12,6 @@ foreach($_POST as $index => $givenAnswer){
     }
     
 }
-
-session_start();
 
 $_SESSION['givenAnswers'] = $_POST;
 $_SESSION['score'] = $score;
